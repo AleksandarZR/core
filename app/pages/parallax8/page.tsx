@@ -36,11 +36,11 @@ const ImageSlider = () => {
     const positions = ["center", "left1", "left", "right", "right1"];
 
     const imageVariants = {
-        center: { x: "0%", scale: 1, zIndex: 5 },
-        left1: { x: "-50%", scale: 0.7, zIndex: 3 },
-        left: { x: "-90%", scale: 0.5, zIndex: 2 },
-        right: { x: "90%", scale: 0.5, zIndex: 1 },
-        right1: { x: "50%", scale: 0.7, zIndex: 3 },
+        center: { x: "0%", scale: 1.2, zIndex: 5 },
+        left1: { x: "-50%", scale: 0.5, zIndex: 3 },
+        left: { x: "-90%", scale: 0.3, zIndex: 2 },
+        right: { x: "90%", scale: 0.3, zIndex: 1 },
+        right1: { x: "50%", scale: 0.5, zIndex: 3 },
     };
 
     return (
@@ -61,13 +61,13 @@ const ImageSlider = () => {
 
             <div className="flex flex-row gap-3 mt-96">
                 <button
-                    className="text-white mt-[400px] bg-indigo-400 rounded-md py-2 px-4"
+                    className="text-white mt-[400px] bg-indigo-400 rounded-md py-2 px-4 z-10"
                     onClick={handleBack}
                 >
                     Back
                 </button>
                 <button
-                    className="text-white mt-[400px] bg-indigo-400 rounded-md py-2 px-4"
+                    className="text-white mt-[400px] bg-indigo-400 rounded-md py-2 px-4 z-10"
                     onClick={handleNext}
                 >
                     Next

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
@@ -27,11 +27,7 @@ export default function Parallax5() {
 
     const variants = {
         visible: { opacity: 1, scale: 1, y: 0 },
-        hidden: {
-            opacity: 0,
-            scale: 0.65,
-            y: 50,
-        },
+        hidden: { opacity: 0, scale: 0.65, y: 50 },
     };
 
     return (
