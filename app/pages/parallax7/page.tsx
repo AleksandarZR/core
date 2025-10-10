@@ -1,92 +1,80 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useState } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import styles from "./page.module.css";
+import city1 from "../../../public/images/wolverine.png";
+import city2 from "@/public/images/batman.png";
+import city3 from "@/public/images/superman.png";
+import planet1 from "@/public/images/thor.png";
+import planet2 from "@/public/images/executioner.png";
 
-export default function StarWarsParallax() {
-    const { scrollYProgress } = useScroll();
+const ImageSlider = () => {
+    const [positionIndexes, setPositionIndexes] = useState([0, 1, 2, 3, 4]);
 
-    // Create a “crawl away” transform
-    const translateY = useTransform(scrollYProgress, [0, 1], ["0%", "-200%"]);
-    const rotateX = useTransform(scrollYProgress, [0, 1], ["0deg", "45deg"]);
-    const scale = useTransform(scrollYProgress, [0, 1], [1, 0.4]);
-    const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+    const handleNext = () => {
+        setPositionIndexes((prevIndexes) => {
+            const updatedIndexes = prevIndexes.map(
+                (prevIndex) => (prevIndex + 1) % 5
+            );
+            return updatedIndexes;
+        });
+    };
+
+    const handleBack = () => {
+        setPositionIndexes((prevIndexes) => {
+            const updatedIndexes = prevIndexes.map(
+                (prevIndex) => (prevIndex + 4) % 5
+            );
+
+            return updatedIndexes;
+        });
+    };
+
+    const images = [city1, city2, city3, planet1, planet2];
+
+    const positions = ["center", "left1", "left", "right", "right1"];
+
+    const imageVariants = {
+        center: { x: "0%", scale: 1.2, zIndex: 5 },
+        left1: { x: "-50%", scale: 0.5, zIndex: 3 },
+        left: { x: "-90%", scale: 0.3, zIndex: 2 },
+        right: { x: "90%", scale: 0.3, zIndex: 1 },
+        right1: { x: "50%", scale: 0.5, zIndex: 3 },
+    };
 
     return (
-        <div className="relative min-h-[200vh] bg-black text-yellow-400 overflow-hidden perspective-[800px]">
-            {/* Starfield background */}
-            <div className="absolute inset-0 bg-[radial-gradient(white,transparent_1px)] [background-size:3px_3px]" />
+        <div className="flex items-center flex-col justify-center bg-black h-screen">
+            {images.map((image, index) => (
+                <motion.div
+                    key={index}
+                    className="rounded-[12px]"
+                    initial="center"
+                    animate={positions[positionIndexes[index]]}
+                    variants={imageVariants}
+                    transition={{ duration: 0.5 }}
+                    style={{ width: "40%", position: "absolute" }}
+                >
+                    <Image src={image} alt={image} />
+                </motion.div>
+            ))}
 
-            {/* Content crawl */}
-            <motion.div
-                style={{
-                    translateY,
-                    rotateX,
-                    scale,
-                    opacity,
-                    transformOrigin: "50% 100%",
-                }}
-                className="absolute bottom-[-50vh] left-1/2 -translate-x-1/2 w-[80%] text-center text-2xl leading-relaxed font-semibold"
-            >
-                {/* Example: letters or images */}
-                <div className="flex justify-center gap-4 flex-wrap">
-                    {[
-                        "A",
-                        "L",
-                        "O",
-                        "N",
-                        "G",
-                        " ",
-                        "T",
-                        "I",
-                        "M",
-                        "E",
-                        " ",
-                        "A",
-                        "G",
-                        "O",
-                    ].map((letter, i) => (
-                        <motion.div
-                            key={i}
-                            className="text-6xl md:text-8xl font-extrabold"
-                            style={{
-                                y: useTransform(
-                                    scrollYProgress,
-                                    [0, 1],
-                                    [0, -i * 50]
-                                ),
-                            }}
-                        >
-                            {letter}
-                        </motion.div>
-                    ))}
-                </div>
-
-                {/* Optional image crawl */}
-                <div className="mt-20 flex justify-center gap-6 flex-wrap">
-                    {[1, 2, 3].map((n) => (
-                        <motion.div
-                            key={n}
-                            className="w-40 h-40 relative"
-                            style={{
-                                y: useTransform(
-                                    scrollYProgress,
-                                    [0, 1],
-                                    [0, -n * 150]
-                                ),
-                            }}
-                        >
-                            <Image
-                                src={`/images/planet-${n}.png`}
-                                alt={`planet-${n}`}
-                                fill
-                                className="object-contain"
-                            />
-                        </motion.div>
-                    ))}
-                </div>
-            </motion.div>
+            <div className="flex flex-row gap-3 mt-96">
+                <button
+                    className="text-white mt-[400px] bg-indigo-400 rounded-md py-2 px-4 z-10"
+                    onClick={handleBack}
+                >
+                    Back
+                </button>
+                <button
+                    className="text-white mt-[400px] bg-indigo-400 rounded-md py-2 px-4 z-10"
+                    onClick={handleNext}
+                >
+                    Next
+                </button>
+            </div>
         </div>
     );
-}
+};
+
+export default ImageSlider;

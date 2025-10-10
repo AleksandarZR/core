@@ -1,16 +1,12 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
-import {
-    useViewportScroll,
-    useScroll,
-    motion,
-    useTransform,
-    useMotionValue,
-} from "framer-motion";
+import { motion } from "framer-motion";
 import type { StaticImageData } from "next/image";
 import Image from "next/image";
+
+//Kada se na ovaj nacin importuju image-i, njihov tip je StaticImageData
 import image1 from "@/public/images/strip01.jpg";
 import image2 from "@/public/images/strip02.jpg";
 import image3 from "@/public/images/strip03.jpg";
@@ -37,9 +33,12 @@ export default function Parallax9() {
                 <motion.div
                     className="pb-space5"
                     key={image.index}
+                    // initial postavlja inicijalnu vrednost za element (vrednost pre pocetka animacije)
                     initial={{
-                        scale: 0.5
+                        scale: 0.5,
                     }}
+                    // animate i whileInView su zaduzeni za animaciju, samo sto prvi vrsi bezuslovno animaciju, a drugi samo kad je element u view-u
+
                     // animate={{
                     //     rotate: 360,
                     //     transition: { duration: 2 },

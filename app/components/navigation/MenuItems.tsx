@@ -22,8 +22,16 @@ const MenuItems = (): JSX.Element => {
                 <SubMenuItemLink href={"/pages/parallax5"} label={"Parallax effect 5"} />
                 <SubMenuItemLink href={"/pages/parallax6"} label={"Parallax effect 6"} />
                 <SubMenuItemLink href={"/pages/parallax7"} label={"Parallax effect 7"} />
-                <SubMenuItemLink href={"/pages/parallax8"} label={"Parallax effect 8"} />
-                <SubMenuItemLink href={"/pages/parallax9"} label={"Parallax effect 9"} />
+                {/* <SubMenuItemLink href={"/pages/parallax8"} label={"Parallax effect 8"} /> */}
+                {/* <SubMenuItemLink href={"/pages/parallax9"} label={"Parallax effect 9"} /> */}
+                {/* <SubMenuItemLink href={"/pages/parallax10"} label={"Parallax effect 10"} /> */}
+            </MenuItemWithSubMenu>
+
+            <MenuItemWithSubMenu menuItemName="Animation" relatedPaths={["/pages/animation1", "/pages/animation2", "/pages/animation3"]}>
+                <SubMenuItemLink href={"/pages/animation1"} label={"Animation 1"} />
+                <SubMenuItemLink href={"/pages/animation2"} label={"Animation 2"} />
+                <SubMenuItemLink href={"/pages/animation3"} label={"Animation 3"} />
+                <SubMenuItemLink href={"/pages/animation4"} label={"Animation 4"} />
             </MenuItemWithSubMenu>
 
             <MenuItemLink href={"/pages/settings"} label={"Settings"} />
