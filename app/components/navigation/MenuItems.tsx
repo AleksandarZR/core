@@ -32,6 +32,7 @@ const MenuItems = (): JSX.Element => {
                 <SubMenuItemLink href={"/pages/animation2"} label={"Animation 2"} />
                 <SubMenuItemLink href={"/pages/animation3"} label={"Animation 3"} />
                 <SubMenuItemLink href={"/pages/animation4"} label={"Animation 4"} />
+                <SubMenuItemLink href={"/pages/animation5"} label={"Animation 5"} />
             </MenuItemWithSubMenu>
 
             <MenuItemLink href={"/pages/settings"} label={"Settings"} />
