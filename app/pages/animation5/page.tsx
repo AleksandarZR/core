@@ -7,6 +7,8 @@ import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import { useState } from "react";
 import HamburgerAnimation from "@/app/components/common/HamburgerAnimation";
+import VerticalImageLooper from "../../components/common/VerticalImageLooper2";
+import InfiniteImageLooper from "../../components/common/InfiniteImageLooper";
 
 interface ImageData {
     imagePath: StaticImageData;
@@ -19,7 +21,7 @@ export default function Animation5() {
 
     const hamburgerClickedHandler = () => {
         setIsHamburgerOpen(!isHamburgerOpen);
-    }
+    };
 
     return (
         <div className="flex flex-col items-center pt-[calc(var(--navheight)+var(--space5))] pb-space10 bg-black w-full min-h-screen">
@@ -175,10 +177,17 @@ export default function Animation5() {
                 className="flex flex-col items-center justify-between  mt-space5 w-48 h-48 bg-white"
             />
 
-            <div className="mt-space10" onClick = {hamburgerClickedHandler}>
+            <div className="mt-space10" onClick={hamburgerClickedHandler}>
                 <HamburgerAnimation isOpen={isHamburgerOpen} />
             </div>
-            
+
+            <div className="mt-space5 mb-space5" >
+                <VerticalImageLooper />
+            </div>
+
+            <div className="mt-space5 mb-space5" >
+                <InfiniteImageLooper />
+            </div>
         </div>
     );
 }
