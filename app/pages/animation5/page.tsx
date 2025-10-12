@@ -15,6 +15,11 @@ interface ImageData {
 
 export default function Animation5() {
     const [isVisible, setIsVisible] = useState(true);
+    const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
+
+    const hamburgerClickedHandler = () => {
+        setIsHamburgerOpen(!isHamburgerOpen);
+    }
 
     return (
         <div className="flex flex-col items-center pt-[calc(var(--navheight)+var(--space5))] pb-space10 bg-black w-full min-h-screen">
@@ -170,8 +175,8 @@ export default function Animation5() {
                 className="flex flex-col items-center justify-between  mt-space5 w-48 h-48 bg-white"
             />
 
-            <div className="mt-space10">
-                <HamburgerAnimation />
+            <div className="mt-space10" onClick = {hamburgerClickedHandler}>
+                <HamburgerAnimation isOpen={isHamburgerOpen} />
             </div>
             
         </div>

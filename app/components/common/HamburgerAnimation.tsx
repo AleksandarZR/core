@@ -7,26 +7,28 @@ import { motion } from "framer-motion";
 interface Properties {
     customStyleBackground?: string;
     customStyleLine?: string;
-    isMenuOpen?: (isOpen: boolean) => void;
+    // isMenuOpen?: (isOpen: boolean) => void;
+    isOpen: boolean;
+
 }
 
-const HamburgerAnimation = ({ customStyleBackground = "", customStyleLine = "", isMenuOpen }: Properties) => {
-    const [isOpen, setIsOpen] = useState(false);
+const HamburgerAnimation = ({ customStyleBackground = "", customStyleLine = "", isOpen = false }: Properties) => {
+    //const [isOpen, setIsOpen] = useState(false);
 
-    const handleClick = () => {
-        setIsOpen(!isOpen);
+    // const handleClick = () => {
+    //     setIsOpen(!isOpen);
 
-        // Call parent method
-        if (isMenuOpen)
-            isMenuOpen(!isOpen);
-    };
+    //     // Call parent method
+    //     if (isMenuOpen)
+    //         isMenuOpen(!isOpen);
+    // };
 
     return (
         <motion.div
             className={`${customStyleBackground} flex flex-col items-center justify-between m-0 w-10 h-8 cursor-pointer bg-rblack`}
             id="hamburgerContainerId"
             transition={{ duration: 1 }}
-            onClick={() => handleClick()}
+            // onClick={() => handleClick()}
         >
             <motion.span
                 className={`${customStyleLine} w-10 h-1 bg-white rounded`}

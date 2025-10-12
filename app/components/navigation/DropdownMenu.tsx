@@ -15,9 +15,9 @@ const DropDownMenu = (/*{ session }: { session: Session }*/): JSX.Element => {
     const dropdownRef = useRef<HTMLDivElement | null>(null);
     const [dropDownVisible, setDropDownVisible] = useState(false);
 
-    /*useClickOutside(dropdownRef, () => {
+    useClickOutside(dropdownRef, () => {
         setDropDownVisible(false);
-    });*/
+    });
 
     const subMenuItemClickedHandler = () => {
         setDropDownVisible(false);
@@ -31,10 +31,16 @@ const DropDownMenu = (/*{ session }: { session: Session }*/): JSX.Element => {
         setDropDownVisible(isOpen);
     };
 
+    const hamburgerClickedHandler = () => {
+        setDropDownVisible(!dropDownVisible);
+    }
+
     return (
         <div ref={dropdownRef}>
             {/* Hamburger icon */}
-            <HamburgerAnimation isMenuOpen={setDropDownVisibility} />
+            <div onClick = {hamburgerClickedHandler}>
+                <HamburgerAnimation isOpen={dropDownVisible} />
+            </div>
 
             {/* Dropdown Menu */}
             <AnimatePresence>
@@ -48,10 +54,10 @@ const DropDownMenu = (/*{ session }: { session: Session }*/): JSX.Element => {
                         // animate={{ opacity: 1, scale: 1 }}
                         // exit={{ opacity: 0, scale: 0.8 }}
                         // transition={{ duration: 0.4, ease: "easeInOut" }}
-                        initial={{ opacity: 0, height: 0, scale: 0.5 }}
-                        animate={{ opacity: 1, height: "auto", scale: 1 }}
-                        exit={{ opacity: 0, height: 0, scale: 0.5 }}
-                        transition={{ duration: 0.5, ease: "easeInOut"}}
+                        initial={{ opacity: 0,  }}
+                        animate={{ opacity: 1,  }}
+                        exit={{ opacity: 0, }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
                     >
                         <div className="flex flex-col justify-center items-center w-full">
                             <DropDownMenuItemWithSubMenu
