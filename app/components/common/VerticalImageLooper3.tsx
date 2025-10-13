@@ -44,7 +44,8 @@ export default function VerticalImageLooper() {
                             src={img}
                             alt={`img-${i}`}
                             fill
-                            style={{ objectFit: "cover" }}
+                            //style={{ objectFit: "cover" }}
+                            className="object-contain"
                         />
                     </div>
                 ))}

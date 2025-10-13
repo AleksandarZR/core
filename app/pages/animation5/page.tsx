@@ -9,6 +9,7 @@ import { useState } from "react";
 import HamburgerAnimation from "@/app/components/common/HamburgerAnimation";
 import VerticalImageLooper from "../../components/common/VerticalImageLooper3";
 import InfiniteImageLooper from "../../components/common/InfiniteImageLooper";
+import Marquee from "../../components/common/Marquee";
 
 interface ImageData {
     imagePath: StaticImageData;
@@ -188,6 +189,8 @@ export default function Animation5() {
             {/* <div className="mt-space5 mb-space5" >
                 <InfiniteImageLooper />
             </div> */}
+
+            {/* <Marquee></Marquee> */}
         </div>
     );
 }
