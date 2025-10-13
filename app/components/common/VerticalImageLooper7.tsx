@@ -20,7 +20,7 @@ export default function InfiniteLooper() {
             <motion.div
                 className="flex w-[500px]"
                 style={{ x: 0 }}
-                animate={{ x: ["0%", "-100%"] }} // Move half of the total width (since we doubled it) NO, WORKS ONLY WITH -100%, NOT WITH -50%
+                animate={{ x: ["0%", "-100%"] }} // Move half of the total width (since we doubled it). NO, WORKS ONLY WITH -100%, NOT WITH -50%
                 transition={{
                     duration: 3, // Adjust for speed
                     ease: "linear",
@@ -32,9 +32,6 @@ export default function InfiniteLooper() {
                         <Image
                             src={src}
                             alt={`Looped Image ${index}`}
-                            // width={100}
-                            // height={150}
-                            // className="object-contain rounded-md"
                         />
                     </div>
                 ))}

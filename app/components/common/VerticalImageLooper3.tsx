@@ -12,19 +12,6 @@ import img5 from "@/public/images/strip05.jpg";
 const images = [img1, img2, img3, img4, img5];
 
 export default function VerticalImageLooper() {
-    // const variants = {
-    //     animate: {
-    //         y: ["0%", "-100%"], // move entire column upward
-    //         transition: {
-    //             y: {
-    //                 duration: 10, // time to move from start to end
-    //                 repeat: Infinity, // loop forever
-    //                 ease: "linear", // constant speed
-    //             },
-    //         },
-    //     },
-    // };
-
     return (
         <div className="overflow-hidden h-[500px] w-[300px] bg-black rounded-xl flex justify-center">
             <motion.div
@@ -44,7 +31,6 @@ export default function VerticalImageLooper() {
                             src={img}
                             alt={`img-${i}`}
                             fill
-                            //style={{ objectFit: "cover" }}
                             className="object-contain"
                         />
                     </div>
