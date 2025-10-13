@@ -7,7 +7,7 @@ import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import { useState } from "react";
 import HamburgerAnimation from "@/app/components/common/HamburgerAnimation";
-import VerticalImageLooper from "../../components/common/VerticalImageLooper2";
+import VerticalImageLooper from "../../components/common/VerticalImageLooper3";
 import InfiniteImageLooper from "../../components/common/InfiniteImageLooper";
 
 interface ImageData {
@@ -185,9 +185,9 @@ export default function Animation5() {
                 <VerticalImageLooper />
             </div>
 
-            <div className="mt-space5 mb-space5" >
+            {/* <div className="mt-space5 mb-space5" >
                 <InfiniteImageLooper />
-            </div>
+            </div> */}
         </div>
     );
 }
