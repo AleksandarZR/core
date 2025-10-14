@@ -15,7 +15,7 @@ export default function VerticalImageLooper3D() {
     return (
         <div
             className="overflow-hidden h-[500px] w-[300px] bg-black rounded-xl flex justify-center"
-            style={{ perspective: "800px" }} // 3D effect depth
+            style={{ perspective: "200px" }} // 3D effect depth
         >
             <motion.div
                 animate={{
@@ -30,7 +30,7 @@ export default function VerticalImageLooper3D() {
                 style={{
                     transformOrigin: "center center",
                     rotateX: 20, // rotate around X axis
-                    rotateZ: -5, // rotate around Z axis
+                    rotateZ: -10, // rotate around Z axis
                 }}
             >
                 {[...images, ...images].map((img, i) => (

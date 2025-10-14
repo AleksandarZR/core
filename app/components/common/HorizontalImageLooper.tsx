@@ -22,7 +22,7 @@ export default function InfiniteLooper() {
                 style={{ x: 0 }}
                 animate={{ x: ["0%", "-100%"] }} // Move half of the total width (since we doubled it). NO, WORKS ONLY WITH -100%, NOT WITH -50%
                 transition={{
-                    duration: 3, // Adjust for speed
+                    duration: 10, // Adjust for speed
                     ease: "linear",
                     repeat: Infinity,
                 }}

@@ -7,9 +7,12 @@ import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import { useState } from "react";
 import HamburgerAnimation from "@/app/components/common/HamburgerAnimation";
-import VerticalImageLooper from "../../components/common/VerticalImageLooperFlex3Cols";
-import InfiniteImageLooper from "../../components/common/InfiniteImageLooper";
-import Marquee from "../../components/common/Marquee";
+import VerticalImageLooperFlex from "@/app/components/common/VerticalImageLooperFlex";
+import VerticalImageLooperFlex3Cols from "@/app/components/common/VerticalImageLooperFlex3Cols";
+import HorizontalImageLooper from "@/app/components/common/HorizontalImageLooper";
+import InfiniteImageLooper from "@/app/components/common/InfiniteImageLooper";
+import VerticalImageLooper3a from "@/app/components/common/VerticalImageLooper3a";
+import Marquee from "@/app/components/common/Marquee";
 
 import img1 from "@/public/images/strip01.jpg";
 import img2 from "@/public/images/strip02.jpg";
@@ -24,6 +27,9 @@ import img22 from "@/public/images/thor.png";
 import img23 from "@/public/images/wolverine.png";
 import img24 from "@/public/images/batman.png";
 import img25 from "@/public/images/executioner.png";
+import PathMorphing from "../../components/common/PathMorphing";
+import SVGAnimation from "../../components/common/SVGAnimation";
+import SVGLoginArrow from "../../components/common/SVGLoginArrow";
 
 //const images2 = [img21, img22, img23, img23, img22];
 const images2 = [img3, img4, img5, img1, img2];
@@ -200,9 +206,32 @@ export default function Animation5() {
                 <HamburgerAnimation isOpen={isHamburgerOpen} />
             </div>
 
-            <div className="mt-space5 mb-space5 ml-space5 mr-space5 h-[800px] w-[calc(100%-2*var(--space5))] border-solid border-[2px] border-white rounded-xl" >
-                <VerticalImageLooper imagesRow1={images} imagesRow2={images2} imagesRow3={images3}/>
+            <div className="mt-space5 mb-space5 ml-space5 mr-space5 h-[800px] w-[calc(100%-2*var(--space5))] border-solid border-[2px] border-white rounded-xl">
+                <VerticalImageLooperFlex images={images} />
             </div>
+
+            <div className="mt-space5 mb-space5 ml-space5 mr-space5 h-[800px] w-[calc(100%-2*var(--space5))] border-solid border-[2px] border-white rounded-xl">
+                <VerticalImageLooperFlex3Cols
+                    imagesRow1={images}
+                    imagesRow2={images2}
+                    imagesRow3={images3}
+                />
+            </div>
+
+            <div className="mt-space5 mb-space5 ml-space5 mr-space5 h-[250px] w-[calc(100%-2*var(--space5))] border-solid border-[2px] border-white rounded-xl">
+                <HorizontalImageLooper />
+            </div>
+
+            <VerticalImageLooper3a></VerticalImageLooper3a>
+
+            {/* OVO KOCI CELU STRANICU SVAKI PUT NAKON PROMENE OBLIKA */}
+            {/* <PathMorphing></PathMorphing> */}
+
+            <div className="w-full min-h-[250px]">
+                <SVGAnimation></SVGAnimation>
+            </div>
+
+            <SVGLoginArrow></SVGLoginArrow>
 
             {/* <div className="mt-space5 mb-space5" >
                 <InfiniteImageLooper />
