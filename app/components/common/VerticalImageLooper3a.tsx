@@ -1,6 +1,3 @@
-/* Mogu da stavim y margine, ali onda moram da smanjim visinu slike. 
-   Ako je kontejner visine 500px, svaki image mora da zauzme 100px sa marginom da animacija ne bi stucala*/
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -14,25 +11,32 @@ import img5 from "@/public/images/strip05.jpg";
 
 const images = [img1, img2, img3, img4, img5];
 
-export default function VerticalImageLooper() {
+export default function VerticalImageLooper3D() {
     return (
-        <div className="overflow-hidden h-[500px] w-[300px] bg-black rounded-xl flex justify-center">
+        <div
+            className="overflow-hidden h-[500px] w-[300px] bg-black rounded-xl flex justify-center"
+            style={{ perspective: "800px" }} // 3D effect depth
+        >
             <motion.div
                 animate={{
-                    y: ["0%", "-100%"],
+                    y: ["0%", "-100%"], // vertical loop
                     transition: {
                         duration: 10,
                         repeat: Infinity,
                         ease: "linear",
                     },
                 }}
-                className="flex flex-col "
+                className="flex flex-col"
+                style={{
+                    transformOrigin: "center center",
+                    rotateX: 20, // rotate around X axis
+                    rotateZ: -5, // rotate around Z axis
+                }}
             >
-                {/* Duplicate images to create a seamless loop */}
                 {[...images, ...images].map((img, i) => (
                     <div
                         key={i}
-                        className="relative w-[300px] h-[100px] flex-shrink-0 my-[5px]"
+                        className="relative w-[300px] h-[90px] flex-shrink-0 my-[5px]" // fixed height + margin
                     >
                         <Image
                             src={img}

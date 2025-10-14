@@ -7,9 +7,27 @@ import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import { useState } from "react";
 import HamburgerAnimation from "@/app/components/common/HamburgerAnimation";
-import VerticalImageLooper from "../../components/common/VerticalImageLooper3";
+import VerticalImageLooper from "../../components/common/VerticalImageLooperFlex3Cols";
 import InfiniteImageLooper from "../../components/common/InfiniteImageLooper";
 import Marquee from "../../components/common/Marquee";
+
+import img1 from "@/public/images/strip01.jpg";
+import img2 from "@/public/images/strip02.jpg";
+import img3 from "@/public/images/strip03.jpg";
+import img4 from "@/public/images/strip04.jpg";
+import img5 from "@/public/images/strip05.jpg";
+
+const images = [img1, img2, img3, img4, img5];
+
+import img21 from "@/public/images/superman.png";
+import img22 from "@/public/images/thor.png";
+import img23 from "@/public/images/wolverine.png";
+import img24 from "@/public/images/batman.png";
+import img25 from "@/public/images/executioner.png";
+
+//const images2 = [img21, img22, img23, img23, img22];
+const images2 = [img3, img4, img5, img1, img2];
+const images3 = [img5, img1, img2, img3, img4];
 
 interface ImageData {
     imagePath: StaticImageData;
@@ -182,8 +200,8 @@ export default function Animation5() {
                 <HamburgerAnimation isOpen={isHamburgerOpen} />
             </div>
 
-            <div className="mt-space5 mb-space5" >
-                <VerticalImageLooper />
+            <div className="mt-space5 mb-space5 ml-space5 mr-space5 h-[800px] w-[calc(100%-2*var(--space5))] border-solid border-[2px] border-white rounded-xl" >
+                <VerticalImageLooper imagesRow1={images} imagesRow2={images2} imagesRow3={images3}/>
             </div>
 
             {/* <div className="mt-space5 mb-space5" >
