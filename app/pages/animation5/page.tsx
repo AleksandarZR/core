@@ -30,6 +30,7 @@ import img25 from "@/public/images/executioner.png";
 import PathMorphing from "../../components/common/PathMorphing";
 import SVGAnimation from "../../components/common/SVGAnimation";
 import SVGLoginArrow from "../../components/common/SVGLoginArrow";
+import SVGLoginArrow2 from "../../components/common/SVGLoginArrow2";
 
 //const images2 = [img21, img22, img23, img23, img22];
 const images2 = [img3, img4, img5, img1, img2];
@@ -232,6 +233,7 @@ export default function Animation5() {
             </div>
 
             <SVGLoginArrow></SVGLoginArrow>
+            <SVGLoginArrow2></SVGLoginArrow2>
 
             {/* <div className="mt-space5 mb-space5" >
                 <InfiniteImageLooper />

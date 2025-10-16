@@ -28,13 +28,14 @@ const HamburgerAnimation = ({ customStyleBackground = "", customStyleLine = "", 
             className={`${customStyleBackground} flex flex-col items-center justify-between m-0 w-10 h-8 cursor-pointer bg-rblack`}
             id="hamburgerContainerId"
             transition={{ duration: 1 }}
+            initial={false}
             // onClick={() => handleClick()}
         >
             <motion.span
                 className={`${customStyleLine} w-10 h-1 bg-white rounded`}
                 style={{ transformOrigin: "center" }} // <-- ensures center rotation
                 id="bar1"
-                initial={{ y: 0, rotate: 0 }}
+                initial={false}
                 animate={{
                     y: isOpen ? [0, 14, 14] : [14, 14, 0],
                     rotate: isOpen ? [0, 0, -45] : [-45, 0, 0],
@@ -47,7 +48,7 @@ const HamburgerAnimation = ({ customStyleBackground = "", customStyleLine = "", 
             <motion.span
                 className={`${customStyleLine} w-10 h-1 bg-white rounded`}
                 id="bar2"
-                initial={{ rotate: 0 }}
+                initial={false}
                 animate={{
                     rotate: isOpen ? [0, 0, -45] : [-45, 0, 0],
                 }}
@@ -59,7 +60,7 @@ const HamburgerAnimation = ({ customStyleBackground = "", customStyleLine = "", 
             <motion.span
                 className={`${customStyleLine} w-10 h-1 bg-white rounded`}
                 id="bar3"
-                initial={{ y: 0 }}
+                initial={false}
                 animate={{
                     y: isOpen ? [0, -14, -14] : [-14, -14, 0],
                     rotate: isOpen ? [0, 0, 45] : [45, 0, 0],
